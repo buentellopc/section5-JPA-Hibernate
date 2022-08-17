@@ -60,11 +60,11 @@ public class CourseRepository {
 
 //            change both courses names
             course1.setName("updating the same course, without explicitly saving it!");
-            course2.setName("angular js in 100 steps - updated");
+            course2.setName("angular js in 100 Steps - updated 100 Steps");
 
 //            retrieve the actual value of course1 from database
 //            any new changes will be lost
-//            em.refresh(course1);
+            em.refresh(course1);
 
 //            course2 will have the new changes saved
             em.flush();
