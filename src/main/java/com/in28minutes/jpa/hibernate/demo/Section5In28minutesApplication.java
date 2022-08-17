@@ -2,6 +2,8 @@ package com.in28minutes.jpa.hibernate.demo;
 
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.repository.CourseRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,6 +16,9 @@ import javax.persistence.EntityManager;
 
 @SpringBootApplication
 public class Section5In28minutesApplication implements CommandLineRunner {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private CourseRepository repository;
 
@@ -24,5 +29,7 @@ public class Section5In28minutesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Course course = repository.findById(10001L);
+
+        logger.info("Course 10001 {}", course);
     }
 }
