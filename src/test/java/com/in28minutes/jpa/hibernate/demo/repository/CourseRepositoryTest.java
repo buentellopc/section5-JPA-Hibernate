@@ -11,10 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes= Section5In28minutesApplication.class)
+@SpringBootTest(classes = Section5In28minutesApplication.class)
 public class CourseRepositoryTest {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -23,9 +24,9 @@ public class CourseRepositoryTest {
     CourseRepository courseRepository;
 
     @Test
-    public void findById(){
+    public void findById() {
         Course course = courseRepository.findById(10001L);
-        assertEquals("jpaaa",course.getName());
+        assertEquals("jpaaa", course.getName());
     }
 
     @Test
@@ -37,7 +38,7 @@ public class CourseRepositoryTest {
 
     @Test
     @DirtiesContext
-    public void save(){
+    public void save() {
 //        get course
         Course course = courseRepository.findById(10001L);
         assertEquals("jpaaa", course.getName());
@@ -49,6 +50,12 @@ public class CourseRepositoryTest {
 //        check the value
         course = courseRepository.findById(10001L);
         assertEquals("jpaaa - updated", course.getName());
+    }
+
+    @Test
+    @DirtiesContext
+    public void playWithEntityManager() {
+        courseRepository.playWithEntityManager();
     }
 
 }
