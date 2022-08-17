@@ -35,5 +35,12 @@ public class Section5In28minutesApplication implements CommandLineRunner {
 //        Needs transaction management
 //        repository.deleteById(10001L);
 
+//        Saving a new course
+        Course courseToSave = new Course("Saving a new course!");
+        repository.save(courseToSave);
+
+//        Update a new course
+        courseToSave.setName("Saving a new course! >> here as an update!");
+        repository.save(courseToSave);
     }
 }
