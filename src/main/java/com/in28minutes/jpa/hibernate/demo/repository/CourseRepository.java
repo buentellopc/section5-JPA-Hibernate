@@ -46,9 +46,20 @@ public class CourseRepository {
 
         public void playWithEntityManager(){
             logger.info("playWithEntityManager - start");
-            Course course = new Course("new course, playing with this");
-            em.persist(course);
-            course.setName("updating the same course, without explicitly saving it!");
+
+//            Create the courses
+            Course course1 = new Course("new course, playing with this");
+            Course course2 = new Course("angular js in 100 steps");
+
+//            persist the courses (entity manager will now keep track of any changes)
+            em.persist(course1);
+            em.persist(course2);
+            em.flush();
+
+//            entity manager tracking for course2 will be cleared, the update of course 2 should not be visible
+            em.detach(course2);
+            course1.setName("updating the same course, without explicitly saving it!");
+            course2.setName("angular js in 100 steps - updated");
         }
 
 

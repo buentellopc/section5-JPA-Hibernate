@@ -32,5 +32,7 @@ public class Section5In28minutesApplication implements CommandLineRunner {
         logger.info("Course 10001 {}", course);
         repository.save(new Course("Clean code"));
 
+
+        repository.playWithEntityManager();
     }
 }
