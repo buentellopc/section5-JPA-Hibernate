@@ -33,7 +33,7 @@ public class Section5In28minutesApplication implements CommandLineRunner {
         logger.info("Course 10001 {}", course);
 
 //        Needs transaction management
-        repository.deleteById(10001L);
+//        repository.deleteById(10001L);
 
     }
 }

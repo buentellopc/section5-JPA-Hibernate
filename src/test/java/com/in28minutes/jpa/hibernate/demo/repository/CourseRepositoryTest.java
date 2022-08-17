@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
 
@@ -25,6 +26,13 @@ public class CourseRepositoryTest {
     public void findById(){
         Course course = courseRepository.findById(10001L);
         assertEquals("jpaaa",course.getName());
+    }
+
+    @Test
+    @DirtiesContext
+    public void deleteById() {
+        courseRepository.deleteById(10001L);
+        assertNull(null, courseRepository.findById(10001L));
     }
 
 }

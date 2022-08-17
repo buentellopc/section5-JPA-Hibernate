@@ -18,6 +18,7 @@ public class CourseRepository {
     public Course findById(Long id){
         return em.find(Course.class, id);
     }
+
     public void deleteById(Long id){
         Course course = findById(id);
         em.remove(course);
