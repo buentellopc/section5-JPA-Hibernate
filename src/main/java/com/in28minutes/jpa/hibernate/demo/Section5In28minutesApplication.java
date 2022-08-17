@@ -29,18 +29,8 @@ public class Section5In28minutesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Course course = repository.findById(10001L);
-
         logger.info("Course 10001 {}", course);
+        repository.save(new Course("Clean code"));
 
-//        Needs transaction management
-//        repository.deleteById(10001L);
-
-//        Saving a new course
-        Course courseToSave = new Course("Saving a new course!");
-        repository.save(courseToSave);
-
-//        Update a new course
-        courseToSave.setName("Saving a new course! >> here as an update!");
-        repository.save(courseToSave);
     }
 }
