@@ -1,1 +1,1 @@
-insert into course values(10001,'j');
+insert into course values(10001,'jpaaa');
