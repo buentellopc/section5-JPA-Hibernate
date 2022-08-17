@@ -35,4 +35,20 @@ public class CourseRepositoryTest {
         assertNull(null, courseRepository.findById(10001L));
     }
 
+    @Test
+    @DirtiesContext
+    public void save(){
+//        get course
+        Course course = courseRepository.findById(10001L);
+        assertEquals("jpaaa", course.getName());
+
+//        update details
+        course.setName("jpaaa - updated");
+        courseRepository.save(course);
+
+//        check the value
+        course = courseRepository.findById(10001L);
+        assertEquals("jpaaa - updated", course.getName());
+    }
+
 }
