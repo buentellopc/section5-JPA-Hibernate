@@ -31,5 +31,9 @@ public class Section5In28minutesApplication implements CommandLineRunner {
         Course course = repository.findById(10001L);
 
         logger.info("Course 10001 {}", course);
+
+//        Needs transaction management
+        repository.deleteById(10001L);
+
     }
 }
